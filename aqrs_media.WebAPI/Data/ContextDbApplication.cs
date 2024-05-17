@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using aqrs_media.WebAPI.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace aqrs_media.WebAPI.Data
 {
@@ -7,5 +8,7 @@ namespace aqrs_media.WebAPI.Data
         public ContextDbApplication(DbContextOptions<ContextDbApplication> options) : base(options)
         {
         }
+
+        DbSet<Media> Medias { get; set; }
     }
 }
