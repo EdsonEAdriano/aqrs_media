@@ -15,7 +15,7 @@ namespace aqrs_media.WebAPI.Repositories
         }
 
 
-        public async Task<T?> GetByIdAsync(Guid id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await _context 
                             .Set<T>()
@@ -23,10 +23,11 @@ namespace aqrs_media.WebAPI.Repositories
                             .SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<T>?> GetAllAsync()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _context
                             .Set<T>()
+                            .Where(t => t.InactivatedDate == null)
                             .ToListAsync();
         }
 
@@ -57,9 +58,9 @@ namespace aqrs_media.WebAPI.Repositories
 
         public async Task<T> Delete(T entity)
         {
-            _context
-                .Set<T>()
-                .Remove(entity);
+            entity.InactivatedDate = DateTime.Now;
+
+            _context.Entry(entity).Property(e => e.InactivatedDate).IsModified = true;
 
             await _context
                     .SaveChangesAsync();
