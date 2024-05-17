@@ -1,4 +1,7 @@
 ﻿using aqrs_media.WebAPI.Data;
+using aqrs_media.WebAPI.Interfaces;
+using aqrs_media.WebAPI.Mappings;
+using aqrs_media.WebAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace aqrs_media.WebAPI.Infrastructure
@@ -11,6 +14,10 @@ namespace aqrs_media.WebAPI.Infrastructure
 
             services.AddDbContext<ContextDbApplication>(options =>
                 options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 23))));
+
+            services.AddScoped<IMediaRepository, MediaRepository>();
+
+            services.AddAutoMapper(typeof(DomainToDTOAndReverseProfile));
 
             return services;
         }
