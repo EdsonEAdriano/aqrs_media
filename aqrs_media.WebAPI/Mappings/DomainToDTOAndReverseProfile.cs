@@ -10,6 +10,8 @@ namespace aqrs_media.WebAPI.Mappings
         {
             CreateMap<Media, MediaInsDTO>().ReverseMap();
             CreateMap<Media, MediaPutDTO>().ReverseMap();
+            CreateMap<Genre, GenreInsDTO>().ReverseMap();
+            CreateMap<Genre, GenrePutDTO>().ReverseMap();
         }
     }
 }
