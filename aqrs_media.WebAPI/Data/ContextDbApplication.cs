@@ -10,5 +10,6 @@ namespace aqrs_media.WebAPI.Data
         }
 
         DbSet<Media> Medias { get; set; }
+        DbSet<Genre> Genre { get; set; }
     }
 }

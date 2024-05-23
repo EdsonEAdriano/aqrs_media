@@ -16,6 +16,7 @@ namespace aqrs_media.WebAPI.Infrastructure
                 options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0, 23))));
 
             services.AddScoped<IMediaRepository, MediaRepository>();
+            services.AddScoped<IGenreRepository, GenreRepository>();
 
             services.AddAutoMapper(typeof(DomainToDTOAndReverseProfile));
 
