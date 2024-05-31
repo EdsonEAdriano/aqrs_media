@@ -18,6 +18,10 @@ namespace aqrs_media.WebAPI.Infrastructure
             services.AddScoped<IMediaRepository, MediaRepository>();
             services.AddScoped<IGenreRepository, GenreRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IMediaTypeRepository, MediaTypeRepository>();
+            services.AddScoped<IParticipantRepository, ParticipantRepository>();
+            services.AddScoped<IRatingRepository, RatingRepository>();
+
 
             services.AddAutoMapper(typeof(DomainToDTOAndReverseProfile));
 
