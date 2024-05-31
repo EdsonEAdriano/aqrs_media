@@ -1,6 +1,7 @@
 ﻿using aqrs_media.WebAPI.DTOs;
 using aqrs_media.WebAPI.Entities;
 using AutoMapper;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace aqrs_media.WebAPI.Mappings
 {
@@ -14,6 +15,12 @@ namespace aqrs_media.WebAPI.Mappings
             CreateMap<Genre, GenrePutDTO>().ReverseMap();
             CreateMap<Category, CategoryInsDTO>().ReverseMap();
             CreateMap<Category, CategoryPutDTO>().ReverseMap();
+            //CreateMap<MediaType, MediaTypeInsDTO>().ReverseMap();
+            //CreateMap<MediaType, MediaTypePutDTO>().ReverseMap();
+            CreateMap<Participant, ParticipantInsDTO>().ReverseMap();
+            CreateMap<Participant, ParticipantPutDTO>().ReverseMap();
+            CreateMap<Rating, RatingInsDTO>().ReverseMap();
+            CreateMap<Rating, RatingPutDTO>().ReverseMap();
         }
     }
 }

@@ -12,5 +12,8 @@ namespace aqrs_media.WebAPI.Data
         DbSet<Media> Medias { get; set; }
         DbSet<Genre> Genre { get; set; }
         DbSet<Category> Category { get; set; }
+        DbSet<MediaType> MediaType { get; set; }
+        DbSet<Participant> Participant { get; set; }
+        DbSet<Rating> Rating { get; set; }
     }
 }
