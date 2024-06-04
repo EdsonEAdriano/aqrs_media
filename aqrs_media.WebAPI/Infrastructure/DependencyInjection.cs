@@ -27,5 +27,22 @@ namespace aqrs_media.WebAPI.Infrastructure
 
             return services;
         }
+
+        public static IServiceCollection AddCorsConfig(this IServiceCollection services)
+        {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAnyOrigin",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
+                    });
+            });
+
+
+            return services;
+        }
     }
 }
