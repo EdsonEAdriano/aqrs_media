@@ -1,4 +1,5 @@
 using aqrs_media.WebAPI.Infrastructure;
+using SwaggerThemes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddCorsConfig();
 
 var app = builder.Build();
 
@@ -17,8 +19,11 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
+    app.UseSwaggerThemes(Theme.Dracula);
     app.UseSwaggerUI();
 }
+
+app.ApplyPendingMigrations();
 
 app.UseHttpsRedirection();
 
