@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aqrs_media.RegisterAPI", "aqrs_media.WebAPI\aqrs_media.RegisterAPI.csproj", "{EFD2D686-8468-4A8F-BC5E-107C62517B72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aqrs_media.CatalogAPI", "aqrs_media.CatalogAPI\aqrs_media.CatalogAPI.csproj", "{FB7182C7-2894-46A7-AE15-8A06F479241C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{EFD2D686-8468-4A8F-BC5E-107C62517B72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFD2D686-8468-4A8F-BC5E-107C62517B72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFD2D686-8468-4A8F-BC5E-107C62517B72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB7182C7-2894-46A7-AE15-8A06F479241C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB7182C7-2894-46A7-AE15-8A06F479241C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB7182C7-2894-46A7-AE15-8A06F479241C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB7182C7-2894-46A7-AE15-8A06F479241C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
