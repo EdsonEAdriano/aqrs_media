@@ -1,10 +1,14 @@
-﻿namespace aqrs_media.CatalogAPI.DTOs
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace aqrs_media.CatalogAPI.DTOs
 {
     public record CatalogDTO
     {
         public Guid Id { get; set; }
         public Guid MediaId { get; set; }
         public string MediaName { get; set; }
+        public string Description { get; set; }
+        public string MediaURL { get; set; }
         public double Price { get; set; }
         public Guid MediaTypeId { get; set; }
         public string Type {  get; set; }

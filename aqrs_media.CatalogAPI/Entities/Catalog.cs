@@ -12,6 +12,10 @@ namespace aqrs_media.CatalogAPI.Entities
         public Guid Id { get; set; }
         [Column("media_id")]
         public Guid MediaId { get; set; }
+        [Column("description")]
+        public string Description { get; set; }
+        [Column("media_url")]
+        public string MediaURL{ get; set; }
         [Column("price")]
         public double Price { get; set; }
         [Column("media_type_id")]
