@@ -20,7 +20,7 @@ namespace aqrs_media.CatalogAPI.Entities
         public double Price { get; set; }
         [Column("media_type_id")]
         public Guid MediaTypeId { get; set; }
-        [Column("catagory_id")]
+        [Column("category_id")]
         public Guid CategoryId { get; set; }
         [Column("genre_id")]
         public Guid GenreId { get; set; }

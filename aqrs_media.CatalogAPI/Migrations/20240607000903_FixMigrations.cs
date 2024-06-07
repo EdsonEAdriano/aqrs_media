@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace aqrsmedia.CatalogAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialMigration : Migration
+    public partial class FixMigrations : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -19,20 +19,25 @@ namespace aqrsmedia.CatalogAPI.Migrations
                 name: "t_catalog",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MediaId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    MediaTypeId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    CategoryId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    GenreId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    RatingId = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
-                    Status = table.Column<string>(type: "longtext", nullable: false)
+                    id = table.Column<Guid>(type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    mediaid = table.Column<Guid>(name: "media_id", type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    description = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    CreatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    InactivatedDate = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                    mediaurl = table.Column<string>(name: "media_url", type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    price = table.Column<double>(type: "double", nullable: false),
+                    mediatypeid = table.Column<Guid>(name: "media_type_id", type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    categoryid = table.Column<Guid>(name: "category_id", type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    genreid = table.Column<Guid>(name: "genre_id", type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    ratingid = table.Column<Guid>(name: "rating_id", type: "char(36)", nullable: false, collation: "ascii_general_ci"),
+                    status = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    createddate = table.Column<DateTime>(name: "created_date", type: "datetime(6)", nullable: false),
+                    inactivateddate = table.Column<DateTime>(name: "inactivated_date", type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_t_catalog", x => x.Id);
+                    table.PrimaryKey("PK_t_catalog", x => x.id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -52,7 +57,7 @@ namespace aqrsmedia.CatalogAPI.Migrations
                         name: "FK_t_catalog_participant_t_catalog_CatalogId",
                         column: x => x.CatalogId,
                         principalTable: "t_catalog",
-                        principalColumn: "Id",
+                        principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");

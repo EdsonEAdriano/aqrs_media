@@ -11,8 +11,8 @@ using aqrs_media.CatalogAPI.Data;
 namespace aqrsmedia.CatalogAPI.Migrations
 {
     [DbContext(typeof(ContextDbApplication))]
-    [Migration("20240601024519_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20240607000903_FixMigrations")]
+    partial class FixMigrations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,39 +26,62 @@ namespace aqrsmedia.CatalogAPI.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("id");
 
                     b.Property<Guid>("CategoryId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("category_id");
 
                     b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("created_date");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("description");
 
                     b.Property<Guid>("GenreId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("genre_id");
 
                     b.Property<DateTime?>("InactivatedDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("inactivated_date");
 
                     b.Property<Guid>("MediaId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("media_id");
 
                     b.Property<Guid>("MediaTypeId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("media_type_id");
+
+                    b.Property<string>("MediaURL")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("media_url");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double")
+                        .HasColumnName("price");
 
                     b.Property<Guid>("RatingId")
-                        .HasColumnType("char(36)");
+                        .HasColumnType("char(36)")
+                        .HasColumnName("rating_id");
 
                     b.Property<string>("Status")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("longtext")
+                        .HasColumnName("status");
 
                     b.HasKey("Id");
 
                     b.ToTable("t_catalog");
                 });
 
-            modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatologParticipant", b =>
+            modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatalogParticipant", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -77,7 +100,7 @@ namespace aqrsmedia.CatalogAPI.Migrations
                     b.ToTable("t_catalog_participant");
                 });
 
-            modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatologParticipant", b =>
+            modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatalogParticipant", b =>
                 {
                     b.HasOne("aqrs_media.CatalogAPI.Entities.Catalog", null)
                         .WithMany("Participants")

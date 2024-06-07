@@ -28,7 +28,7 @@ namespace aqrsmedia.CatalogAPI.Migrations
 
                     b.Property<Guid>("CategoryId")
                         .HasColumnType("char(36)")
-                        .HasColumnName("catagory_id");
+                        .HasColumnName("category_id");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime(6)")
