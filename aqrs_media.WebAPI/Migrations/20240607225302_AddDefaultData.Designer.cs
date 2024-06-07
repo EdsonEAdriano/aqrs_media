@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using aqrs_media.WebAPI.Data;
 
@@ -10,9 +11,11 @@ using aqrs_media.WebAPI.Data;
 namespace aqrsmedia.RegisterAPI.Migrations
 {
     [DbContext(typeof(ContextDbApplication))]
-    partial class ContextDbApplicationModelSnapshot : ModelSnapshot
+    [Migration("20240607225302_AddDefaultData")]
+    partial class AddDefaultData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
