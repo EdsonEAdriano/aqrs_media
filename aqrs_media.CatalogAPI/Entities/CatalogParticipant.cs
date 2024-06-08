@@ -7,8 +7,11 @@ namespace aqrs_media.CatalogAPI.Entities
     public class CatalogParticipant
     {
         [Key]
-        public int Id { get; set; }
+        [Column("id")]
+        public Guid Id { get; set; }
+        [Column("catalog_id")]
         public Guid CatalogId { get; set; }
+        [Column("participant_id")]
         public Guid ParticipantId { get; set; }
     }
 }

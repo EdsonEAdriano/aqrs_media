@@ -15,6 +15,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             CreateMap<Catalog, CatalogDTO>()
                 .ForMember(dest => dest.MediaName, opt => opt.MapFrom<MediaNameResolver>())
+                .ForMember(dest => dest.PriceInWords, opt => opt.MapFrom<PriceInWordsResolver>())
                 .ForMember(dest => dest.Type, opt => opt.MapFrom<MediaTypeNameResolver>())
                 .ForMember(dest => dest.Category, opt => opt.MapFrom<CategoryNameResolver>())
                 .ForMember(dest => dest.Genre, opt => opt.MapFrom<GenreNameResolver>())
@@ -101,6 +102,20 @@ namespace aqrs_media.CatalogAPI.Mappings
             var media = _mediaRefitService.GetById(source.MediaId).Result;
 
             return media.Name;
+        }
+    }
+
+    public class PriceInWordsResolver : IValueResolver<Catalog, CatalogDTO, string>
+    {
+        public string Resolve(Catalog source, CatalogDTO destination, string destMember, ResolutionContext context)
+        {
+            NumberConversion.NumberConversionSoapTypeClient numberConversionService = new NumberConversion.NumberConversionSoapTypeClient(NumberConversion.NumberConversionSoapTypeClient.EndpointConfiguration.NumberConversionSoap);
+            var priceInWords = numberConversionService.NumberToDollars((decimal)source.Price);
+
+            priceInWords = priceInWords.Replace("dollars", "reais");
+            priceInWords = priceInWords.Replace("dollar", "real");
+
+            return priceInWords;
         }
     }
 

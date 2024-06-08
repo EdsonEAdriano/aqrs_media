@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using aqrs_media.CatalogAPI.Data;
 
@@ -10,9 +11,11 @@ using aqrs_media.CatalogAPI.Data;
 namespace aqrsmedia.CatalogAPI.Migrations
 {
     [DbContext(typeof(ContextDbApplication))]
-    partial class ContextDbApplicationModelSnapshot : ModelSnapshot
+    [Migration("20240607223447_FixColumnNameFromCatalogParticipant")]
+    partial class FixColumnNameFromCatalogParticipant
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -76,22 +79,6 @@ namespace aqrsmedia.CatalogAPI.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("t_catalog");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("fdda6ab1-eed4-4856-9e55-b9e96eb2f163"),
-                            CategoryId = new Guid("c313fa89-0025-4d9d-bbd9-d83b29ad72df"),
-                            CreatedDate = new DateTime(2024, 6, 7, 19, 57, 34, 130, DateTimeKind.Local).AddTicks(9547),
-                            Description = "Descrição do catalogo 1",
-                            GenreId = new Guid("db1d5df5-8176-4032-be18-9b3329dc16e9"),
-                            MediaId = new Guid("c427b2e1-deeb-45cd-9b84-1d66f90bcb75"),
-                            MediaTypeId = new Guid("ce6875b7-efcb-4da3-bd0e-7813fbd1c479"),
-                            MediaURL = "https://localhost:7001/api/Catalog/fdda6ab1-eed4-4856-9e55-b9e96eb2f163",
-                            Price = 98.579999999999998,
-                            RatingId = new Guid("fb923c80-e9f7-4098-b8d6-5ebc2dd32315"),
-                            Status = "ACTIVE"
-                        });
                 });
 
             modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatalogParticipant", b =>
@@ -114,20 +101,6 @@ namespace aqrsmedia.CatalogAPI.Migrations
                     b.HasIndex("CatalogId");
 
                     b.ToTable("t_catalog_participant");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("2d5d2a29-c4ed-4ee1-b8a9-d4a9f196f5a0"),
-                            CatalogId = new Guid("fdda6ab1-eed4-4856-9e55-b9e96eb2f163"),
-                            ParticipantId = new Guid("c0d8deac-b6b9-489b-b6e3-afab399ed3a5")
-                        },
-                        new
-                        {
-                            Id = new Guid("a567968f-64d2-419f-a838-6ae462345898"),
-                            CatalogId = new Guid("fdda6ab1-eed4-4856-9e55-b9e96eb2f163"),
-                            ParticipantId = new Guid("537f6d12-6d9e-4a82-ae1e-ce734eea6c70")
-                        });
                 });
 
             modelBuilder.Entity("aqrs_media.CatalogAPI.Entities.CatalogParticipant", b =>

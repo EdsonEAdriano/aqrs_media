@@ -10,6 +10,7 @@ namespace aqrs_media.CatalogAPI.DTOs
         public string Description { get; set; }
         public string MediaURL { get; set; }
         public double Price { get; set; }
+        public string PriceInWords { get; set; } 
         public Guid MediaTypeId { get; set; }
         public string Type {  get; set; }
         public Guid CategoryId { get; set; }
