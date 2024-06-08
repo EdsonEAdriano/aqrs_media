@@ -3,7 +3,8 @@
     <mat-toolbar color="primary">
       <span>Participantes</span>
     </mat-toolbar>
-    <table mat-table [dataSource]="participant" class="mat-elevation-z8">
+
+    <table mat-table [dataSource]="participants" class="mat-elevation-z8">
       <!-- Name Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef>Nome</th>
@@ -13,26 +14,31 @@
       <!-- CreatedDate Column -->
       <ng-container matColumnDef="createdDate">
         <th mat-header-cell *matHeaderCellDef>Data de criação</th>
-        <td mat-cell *matCellDef="let participant">{{ participant.createdDate }}</td>
+        <td mat-cell *matCellDef="let participant">
+          {{ participant.createdDate }}
+        </td>
       </ng-container>
 
       <!-- Actions Column -->
       <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef>
+        <mat-header-cell *matHeaderCellDef class="action-column">
           <button
             mat-mini-fab
             color="primary"
             aria-label="Adicionar um participante"
             (click)="onAdd()"
+            class="action-column-header"
           >
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
-        <mat-cell *matCellDef="let participant">
+
+        <mat-cell *matCellDef="let participant" class="action-column">
           <button
             mat-icon-button
             color="primary"
-            aria-label="Adicionar um participante"
+            aria-label="Editar Participant"
+            (click)="onEdit(participant)"
           >
             <mat-icon>edit</mat-icon>
           </button>
@@ -40,7 +46,8 @@
           <button
             mat-icon-button
             color="warn"
-            aria-label="Adicionar um participante"
+            aria-label="Remover Participant"
+            (click)="onDelete(participant)"
           >
             <mat-icon>delete</mat-icon>
           </button>

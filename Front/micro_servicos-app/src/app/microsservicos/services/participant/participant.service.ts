@@ -21,10 +21,30 @@ export class ParticipantService {
     );
   }
 
-  save(record: Participant) {
+  save(record: Partial<Participant>) {
     // console.log(record)
+    if (record.id) {
+      // console.log('update');
+      return this.update(record);
+    }
+    // console.log('create');
+    return this.create(record);
+  }
+
+  private create(record: Partial<Participant>) {
     return this.httpClient.post<Participant>(this.API, record).pipe(first());
   }
+
+  update(record: Partial<Participant>) {
+    return this.httpClient.put<Participant>(`${this.API}/${record.id}`, record).pipe(first());
+  }
+
+  delete(id: string) {
+    console.log(`senhor -> ${this.API}/${id}`);
+    return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
+  }
+
+
 
   loadById(id: string) {
     return this.httpClient.get<Participant>(`${this.API}/${id}`);
