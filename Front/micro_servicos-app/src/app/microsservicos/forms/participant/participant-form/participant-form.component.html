@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-content>
+    <mat-toolbar color="primary">Cadastro de participante</mat-toolbar>
+    <form [formGroup]="form">
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="teste" formControlName="createdDate" />
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions class="actions-center">
+    <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button class="btn-space" (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>
