@@ -41,7 +41,7 @@ namespace aqrs_media.CatalogAPI.Infrastructure
             return services;
         }
     
-        public static IServiceCollection AddCorsConfig(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddCorsConfig(this IServiceCollection services)
         {
             services.AddCors(options =>
             {

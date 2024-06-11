@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddCorsConfig();
 
 var app = builder.Build();
 
@@ -23,6 +24,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.ApplyPendingMigrations();
+
+app.UseCors("AllowAnyOrigin");
 
 app.UseHttpsRedirection();
 

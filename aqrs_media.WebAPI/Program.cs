@@ -25,6 +25,8 @@ if (app.Environment.IsDevelopment())
 
 app.ApplyPendingMigrations();
 
+app.UseCors("AllowAnyOrigin");
+
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
