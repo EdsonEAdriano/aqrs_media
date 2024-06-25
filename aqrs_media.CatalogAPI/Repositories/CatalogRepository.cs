@@ -31,6 +31,7 @@ namespace aqrs_media.CatalogAPI.Repositories
                         .Set<Catalog>()
                         .Where(c => c.Id == id && c.Status == EStatus.ACTIVE)
                         .Include(c => c.Participants)
+                        .AsNoTracking()
                         .SingleOrDefaultAsync();
         }
 

@@ -6,6 +6,6 @@ namespace aqrs_media.CatalogAPI.Refit.Interface
     public interface ICategoryRefitService
     {
         [Get("/api/Category/{id}")]
-        Task<CategoryRefit> GetById(Guid id);
+        Task<ApiResponse<CategoryRefit>> GetById(Guid id);
     }
 }

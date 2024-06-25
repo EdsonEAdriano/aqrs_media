@@ -6,6 +6,6 @@ namespace aqrs_media.CatalogAPI.Refit.Interfaces
     public interface IMediaRefitService
     {
         [Get("/api/Media/{id}")]
-        Task<MediaRefit> GetById(Guid id);
+        Task<ApiResponse<MediaRefit>> GetById(Guid id);
     }
 }

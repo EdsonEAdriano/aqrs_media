@@ -19,34 +19,72 @@ namespace aqrs_media.CatalogAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<CatalogDTO>>> Get()
         {
-            var catalogs = await _service.GetAllAsync();
-            return Ok(catalogs);
+            try
+            {
+                var catalogs = await _service.GetAllAsync();
+                return Ok(catalogs);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }         
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<IEnumerable<CatalogDTO>>> Get(Guid id)
         {
-            var catalog = await _service.GetByIdAsync(id);
-            return Ok(catalog);
+            try
+            {
+                var catalog = await _service.GetByIdAsync(id);              
+
+                return Ok(catalog);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }   
         }
 
         [HttpPost]   
         public async Task<ActionResult<CatalogDTO>> Create(CatalogInsDTO catalogInsDTO)
         {
-            return await _service.CreateAsync(catalogInsDTO);
+            try
+            {
+                return await _service.CreateAsync(catalogInsDTO);
+            }
+            catch (Exception ex) 
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpPut]
         public async Task<ActionResult<CatalogDTO>> Update(CatalogPutDTO catalogPutDTO)
         {
-            return await _service.UpdateAsync(catalogPutDTO);
+            try
+            {
+                return await _service.UpdateAsync(catalogPutDTO);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<CatalogDTO>> Delete(Guid id)
         {
-            var catalog = await _service.DeleteAsync(id);
-            return Ok(catalog);
+            try
+            {
+                var catalog = await _service.DeleteAsync(id);
+                return Ok(catalog);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
     }
 }
