@@ -60,7 +60,7 @@ namespace aqrs_media.WebAPI.Controllers
             return Ok(participant);
         }
 
-        [HttpDelete("{id}")]
+        [HttpPatch("{id}")]
         public async Task<ActionResult<Participant>> Delete(Guid id)
         {
             var participant = await _repo.GetByIdAsync(id);

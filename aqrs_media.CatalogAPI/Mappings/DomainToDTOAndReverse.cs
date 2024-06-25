@@ -1,11 +1,8 @@
-﻿using AutoMapper;
-using aqrs_media.CatalogAPI.DTOs;
+﻿using aqrs_media.CatalogAPI.DTOs;
 using aqrs_media.CatalogAPI.Entities;
-using aqrs_media.CatalogAPI.Refit.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using aqrs_media.CatalogAPI.Refit.Interface;
+using aqrs_media.CatalogAPI.Refit.Interfaces;
+using AutoMapper;
 
 namespace aqrs_media.CatalogAPI.Mappings
 {
@@ -81,6 +78,7 @@ namespace aqrs_media.CatalogAPI.Mappings
             var participantName = _participantRefitService
                                         .GetById(source.ParticipantId)
                                         .Result
+                                        .Content
                                         .Name;
 
             return participantName;
@@ -101,7 +99,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             var media = _mediaRefitService.GetById(source.MediaId).Result;
 
-            return media.Name;
+            return media.Content.Name;
         }
     }
 
@@ -132,7 +130,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             var mediaType = _mediaTypeRefitService.GetById(source.MediaTypeId).Result;
 
-            return mediaType.Name;
+            return mediaType.Content.Name;
         }
     }
 
@@ -149,7 +147,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             var category = _categoryRefitService.GetById(source.CategoryId).Result;
 
-            return category.Name;
+            return category.Content.Name;
         }
     }
 
@@ -166,7 +164,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             var genre = _genreRefitService.GetById(source.GenreId).Result;
 
-            return genre.Name;
+            return genre.Content.Name;
         }
     }
 
@@ -183,7 +181,7 @@ namespace aqrs_media.CatalogAPI.Mappings
         {
             var rating = _ratingRefitService.GetById(source.RatingId).Result;
 
-            return rating.Name;
+            return rating.Content.Name;
         }
     }
 }

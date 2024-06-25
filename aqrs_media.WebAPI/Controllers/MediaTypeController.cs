@@ -60,7 +60,7 @@ namespace aqrs_media.WebAPI.Controllers
             return Ok(mediaType);
         }
 
-        [HttpDelete("{id}")]
+        [HttpPatch("{id}")]
         public async Task<ActionResult<MediaType>> Delete(Guid id)
         {
             var mediaType = await _repo.GetByIdAsync(id);
