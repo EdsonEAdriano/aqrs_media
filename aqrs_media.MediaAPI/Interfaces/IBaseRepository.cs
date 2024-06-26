@@ -1,4 +1,4 @@
-﻿namespace aqrs_media.WebAPI.Interfaces
+﻿namespace aqrs_media.MediaAPI.Interfaces
 {
     public interface IBaseRepository<T> where T : class
     {

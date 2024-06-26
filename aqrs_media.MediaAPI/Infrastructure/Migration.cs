@@ -1,7 +1,7 @@
-﻿using aqrs_media.WebAPI.Data;
+﻿using aqrs_media.MediaAPI.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace aqrs_media.WebAPI.Infrastructure
+namespace aqrs_media.MediaAPI.Infrastructure
 {
     public static class Migration
     {

@@ -1,7 +1,7 @@
-﻿using aqrs_media.WebAPI.Entities;
+﻿using aqrs_media.MediaAPI.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace aqrs_media.WebAPI.Data
+namespace aqrs_media.MediaAPI.Data
 {
     public class ContextDbApplication : DbContext
     {

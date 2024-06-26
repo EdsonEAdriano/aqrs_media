@@ -1,10 +1,10 @@
-﻿using aqrs_media.WebAPI.DTOs;
-using aqrs_media.WebAPI.Entities;
-using aqrs_media.WebAPI.Interfaces;
+﻿using aqrs_media.MediaAPI.DTOs;
+using aqrs_media.MediaAPI.Entities;
+using aqrs_media.MediaAPI.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace aqrs_media.WebAPI.Controllers
+namespace aqrs_media.MediaAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
