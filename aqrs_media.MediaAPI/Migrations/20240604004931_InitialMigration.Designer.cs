@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using aqrs_media.WebAPI.Data;
+using aqrs_media.MediaAPI.Data;
 
 #nullable disable
 
@@ -22,7 +22,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                 .HasAnnotation("ProductVersion", "7.0.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.Category", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.Category", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                     b.ToTable("t_category");
                 });
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.Genre", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.Genre", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -68,7 +68,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                     b.ToTable("t_genre");
                 });
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.Media", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.Media", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -91,7 +91,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                     b.ToTable("t_media");
                 });
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.MediaType", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.MediaType", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -114,7 +114,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                     b.ToTable("t_media_type");
                 });
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.Participant", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.Participant", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -137,7 +137,7 @@ namespace aqrsmedia.RegisterAPI.Migrations
                     b.ToTable("t_participant");
                 });
 
-            modelBuilder.Entity("aqrs_media.WebAPI.Entities.Rating", b =>
+            modelBuilder.Entity("aqrs_media.MediaAPI.Entities.Rating", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()

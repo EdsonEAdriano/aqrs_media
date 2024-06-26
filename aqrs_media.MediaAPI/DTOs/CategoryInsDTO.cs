@@ -1,4 +1,4 @@
-﻿namespace aqrs_media.WebAPI.DTOs
+﻿namespace aqrs_media.MediaAPI.DTOs
 {
     public record CategoryInsDTO(string name);
     

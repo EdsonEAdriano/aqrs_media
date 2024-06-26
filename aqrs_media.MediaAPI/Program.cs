@@ -1,4 +1,4 @@
-using aqrs_media.WebAPI.Infrastructure;
+using aqrs_media.MediaAPI.Infrastructure;
 using SwaggerThemes;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,9 +1,9 @@
-﻿using aqrs_media.WebAPI.Data;
-using aqrs_media.WebAPI.Entities;
-using aqrs_media.WebAPI.Interfaces;
+﻿using aqrs_media.MediaAPI.Data;
+using aqrs_media.MediaAPI.Entities;
+using aqrs_media.MediaAPI.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace aqrs_media.WebAPI.Repositories
+namespace aqrs_media.MediaAPI.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
     {

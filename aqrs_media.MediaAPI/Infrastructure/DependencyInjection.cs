@@ -1,10 +1,10 @@
-﻿using aqrs_media.WebAPI.Data;
-using aqrs_media.WebAPI.Interfaces;
-using aqrs_media.WebAPI.Mappings;
-using aqrs_media.WebAPI.Repositories;
+﻿using aqrs_media.MediaAPI.Data;
+using aqrs_media.MediaAPI.Interfaces;
+using aqrs_media.MediaAPI.Mappings;
+using aqrs_media.MediaAPI.Repositories;
 using Microsoft.EntityFrameworkCore;
 
-namespace aqrs_media.WebAPI.Infrastructure
+namespace aqrs_media.MediaAPI.Infrastructure
 {
     public static class DependencyInjection
     {
