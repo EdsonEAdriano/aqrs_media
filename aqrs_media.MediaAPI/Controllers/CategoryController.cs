@@ -20,17 +20,19 @@ namespace aqrs_media.MediaAPI.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Category>>> Get()
+        public async Task<ActionResult<IEnumerable<BaseDTO>>> Get()
         {
             var category = await _repo.GetAllAsync();
+            var categoryDtos = _mapper.Map<IEnumerable<BaseDTO>>(category);
 
             return Ok(category);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Category>> Get(Guid id)
+        public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var category = await _repo.GetByIdAsync(id);
+            var categoryDtos = _mapper.Map<BaseDTO>(category);
 
             return Ok(category);
         }
@@ -41,7 +43,6 @@ namespace aqrs_media.MediaAPI.Controllers
             var category = _mapper.Map<Category>(categoryDTO);
 
             category.CreatedDate = DateTime.Now;
-
             category = await _repo.Create(category);
 
             return Ok(category);

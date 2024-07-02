@@ -21,19 +21,21 @@ namespace aqrs_media.MediaAPI.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Rating>>> Get()
+        public async Task<ActionResult<IEnumerable<BaseDTO>>> Get()
         {
             var rating = await _repo.GetAllAsync();
+            var ratingDtos = _mapper.Map<IEnumerable<BaseDTO>>(rating);
 
-            return Ok(rating);
+            return Ok(ratingDtos);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Rating>> Get(Guid id)
+        public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var rating = await _repo.GetByIdAsync(id);
+            var ratingDtos = _mapper.Map<BaseDTO>(rating);
 
-            return Ok(rating);
+            return Ok(ratingDtos);
         }
 
         [HttpPost]

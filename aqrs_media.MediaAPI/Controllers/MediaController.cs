@@ -22,17 +22,19 @@ namespace aqrs_media.MediaAPI.Controllers
 
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Media>>> Get()
+        public async Task<ActionResult<IEnumerable<BaseDTO>>> Get()
         {
-            var medias = await _repo.GetAllAsync();
+            var mediaList = await _repo.GetAllAsync();
+            var mediaDtos = _mapper.Map<IEnumerable<BaseDTO>>(mediaList);
 
-            return Ok(medias);
+            return Ok(mediaDtos);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Media>> Get(Guid id)
+        public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var media = await _repo.GetByIdAsync(id);
+            var mediaDtos = _mapper.Map<BaseDTO>(media);
 
             return Ok(media);
         }
