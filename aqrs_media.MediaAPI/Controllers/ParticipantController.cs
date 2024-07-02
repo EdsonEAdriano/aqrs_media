@@ -32,9 +32,8 @@ namespace aqrs_media.MediaAPI.Controllers
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var participant = await _repo.GetByIdAsync(id);
-            var participantDtos = _mapper.Map<BaseDTO>(participant);
 
-            return Ok(participantDtos);
+            return Ok(participant);
         }
 
         [HttpPost]

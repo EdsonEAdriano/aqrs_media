@@ -26,14 +26,13 @@ namespace aqrs_media.MediaAPI.Controllers
             var genre = await _repo.GetAllAsync();
             var genreDtos = _mapper.Map<IEnumerable<BaseDTO>>(genre);
 
-            return Ok(genre);
+            return Ok(genreDtos);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var genre = await _repo.GetByIdAsync(id);
-            var genreDtos = _mapper.Map<BaseDTO>(genre);
 
             return Ok(genre);
         }

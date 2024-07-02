@@ -33,9 +33,8 @@ namespace aqrs_media.MediaAPI.Controllers
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var rating = await _repo.GetByIdAsync(id);
-            var ratingDtos = _mapper.Map<BaseDTO>(rating);
 
-            return Ok(ratingDtos);
+            return Ok(rating);
         }
 
         [HttpPost]

@@ -32,9 +32,8 @@ namespace aqrs_media.MediaAPI.Controllers
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var mediaType = await _repo.GetByIdAsync(id);
-            var mediaTypeDtos = _mapper?.Map<BaseDTO>(mediaType);
 
-            return Ok(mediaTypeDtos);
+            return Ok(mediaType);
         }
 
         [HttpPost]

@@ -34,7 +34,6 @@ namespace aqrs_media.MediaAPI.Controllers
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var media = await _repo.GetByIdAsync(id);
-            var mediaDtos = _mapper.Map<BaseDTO>(media);
 
             return Ok(media);
         }

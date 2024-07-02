@@ -25,14 +25,13 @@ namespace aqrs_media.MediaAPI.Controllers
             var category = await _repo.GetAllAsync();
             var categoryDtos = _mapper.Map<IEnumerable<BaseDTO>>(category);
 
-            return Ok(category);
+            return Ok(categoryDtos);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<BaseDTO>> Get(Guid id)
         {
             var category = await _repo.GetByIdAsync(id);
-            var categoryDtos = _mapper.Map<BaseDTO>(category);
 
             return Ok(category);
         }
